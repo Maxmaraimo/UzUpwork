@@ -1,0 +1,183 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load django_bootstrap5 %}
+
+{% block title %}
+  <title>Jobs</title>
+{% endblock %}
+
+{% block link %}
+  {% comment %} <link rel="stylesheet" href="{% static 'css/works.css' %}" /> {% endcomment %}
+{% endblock %}
+
+{% block style %}
+  <style>
+    .all-books {
+      background-image: linear-gradient(to right, snow, lightgray); 
+      border-radius: 0 20px 20px 20px;
+      padding: 50px;
+ 
+  }
+  .book {
+    border-radius: 10px;
+    padding: 25px;
+    background-image: linear-gradient(to right, snow, snow); 
+    border: 1px solid green;
+    margin: 20px 40px;
+}
+.book:hover {
+    transform: scale(0  .03);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+.book hr {
+  background-color: green;
+}
+
+.carousel-item {
+  width: 1200px;
+  height: 210px;
+  color:snow;
+  background-color: rgba(11, 11, 169, 0.931);
+  border-radius: 15px;
+}
+.carousel-item .h5, .p {
+  color: snow;
+  text-align: left;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  margin: 10px 20px;
+  position: relative;
+  top: 10px;
+}
+.carousel-item .h5{
+  font-size: 25px;
+ }
+.carousel-item .p{
+  font-size: 15px;
+ }
+
+ .carousel-item button {
+  margin: 10px -120px;
+ }
+ .green_buttons {
+  border-radius: 15px;
+  border:none;
+  background-color: green;
+  color:snow;
+  padding: 3px;
+  width: 170px;
+  margin: 10px 20px;
+ }
+ .snow_button {
+  border-radius: 15px;
+  background-color: snow;
+  color:black;
+  padding: 3px;
+  width: 170px;
+  margin: 10px 20px;
+  justify-content: left;
+ }
+  </style>
+{% endblock %}
+
+{% block content %}
+  <br />
+  <br />
+  <h1>Jobs you might like</h1>
+  <form class="d-flex">
+    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-success" type="submit">Search</button>
+  </form><br><br>
+  {% comment %}  {% endcomment %}
+
+
+
+  <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active" data-bs-interval="10000" >
+        <div class="carousel-caption d-none d-md-block">
+          <h5 class="h5">Learn how to get started an UzUpwork</h5>
+          <p class="p">Upwork 101 will guide you through the basics of our platform: setting up your profile, submitting proposals and how to grow your business.</p>
+          <button class="green_buttons">Explore UzUpwork</button>
+        </div>
+      </div>
+      <div class="carousel-item" data-bs-interval="2000" style="background-color: snow;">
+        <div class="carousel-caption d-none d-md-block">
+          <h5 style="color: black;" class="h5">Stand out in search results by boosting your</h5>
+          <h5 style="color: black;" class="h5">Catalog projects</h5>
+          
+          <button class="green_buttons">Boost a project</button>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="carousel-caption d-none d-md-block">
+          <h5 class="h5">Get 80 Connects each month</h5>
+          <p class="p">oin Freelancer Plus to start each month fresh with 80 Connects. You'll get a lot of other perks too! Join now to unlock new features to help you grow your network and market your skills.</p>
+          <button class="snow_button">Learn more</button>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+  
+  
+  
+  {% comment %}  {% endcomment %}
+
+  <br>
+  <br>
+  <div class="container-fluid">
+    <div class="all-books">
+      {% if object_list %}
+      {% for book in object_list %}
+      <div class="book">
+        <div class="book-header">
+          {% comment %}to filter created we can use | date:'d-m-Y' or | timesince or | timeuntil{% endcomment %}
+          <small class="text-secondary">Created at: {{ book.created|date:'d-m-Y' }}</small>
+          <p class="book-cost">$ {{ book.price }} {{ book.author }} => {{ book.genre}} work</p>
+            </div>
+            <hr />
+            <h3>{{ book.title }}</h3>
+            {% comment %} <img src="{{ book.image.url }}" alt="{{ book.title }}" /> {% endcomment %}
+            <p>{{ book.description }}</p>
+
+            
+            {% comment %}we update it if only current user is creator of book{% endcomment %}
+            {% comment %} {% if book.creator == request.user %}
+              {% endcomment %}
+              <div class="book-footer">
+                <hr />
+
+                {% if book.author.id == request.user.id %}
+                  <a href="{% url 'update_book' book.id %}" class="btn btn-sm col-sm-4 btn-outline-primary">Update</a>
+                  <a href="{% url 'delete_book' book.id %}" class="btn btn-sm col-sm-4 btn-outline-danger">Delete</a>
+                {% else %}
+                  <a href="{% url 'work_details' book.id %}" class="btn btn-sm col-sm-12 btn-outline-success">Apply Now</a>
+
+                {% endif %}
+              </div>
+              {% comment %}
+            {% endif %} {% endcomment %}
+          </div>
+        {% endfor %}
+      {% else %}
+        <p>No books found</p>
+      {% endif %}
+    </div>
+  </div>
+{% endblock %}
+
+{% block script %}
+
+{% endblock %}

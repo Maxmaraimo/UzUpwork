@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load django_bootstrap5 %}
+
+{% block title %}
+  <title>{{ user.username }} profile</title>
+{% endblock %}
+
+{% block style %}
+<style>
+  .main {
+    background: linear-gradient(to right, snow, lightgray);
+    border-radius: 0 20px 20px 20px;
+    padding: 50px;
+    color: green;
+    border-color: aliceblue;
+  }
+
+  .main input,
+  .main select {
+    border-color: green;
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<br><br><br>
+<div class="main">
+  <h1>{{ user.username }} profile
+    <div class="mb-5" style="font-size: 17px;">
+      <div class="select-wrapper">
+        <label for="type" class="select-label">Вы:</label>
+        <select id="type" name="type">
+          <option value="freelancer">Freelancer</option>
+          <option value="client">Client</option>
+        </select>
+      </div>
+    </div>
+  </h1>
+
+  <form method="POST"
+        enctype="multipart/form-data">
+    {% csrf_token %}
+
+    {% if u_form.errors %}
+      {% bootstrap_form_errors u_form %}
+    {% endif %}
+
+    {% if p_form.errors %}
+      {% bootstrap_form_errors p_form %}
+    {% endif %}
+
+    {% bootstrap_form u_form %}
+    {% bootstrap_form p_form %}
+
+    <button class="btn btn-success" type="submit">Update</button>
+  </form>
+</div>
+{% endblock %}
+
+{% block script %}
+
+{% endblock %}

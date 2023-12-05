@@ -1,0 +1,917 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  <title>Home</title>
+{% endblock %}
+
+{% block style %}
+  <style>
+    * {
+      transition: 0.1s;
+    }
+    body {
+      background-color: #333;
+      color: blck;
+    }
+    button {
+      cursor: pointer;
+    }
+    .ch_main {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .ch_main h1 {
+      color: green;
+      font-size: 91px;
+      font-family: 'Times New Roman', Times, serif;
+    }
+    .ch_main p,
+    h6 {
+      color: gray;
+      font-size: 15px;
+    }
+    .ch_main button {
+      background-color: green;
+      color: snow;
+      border: none;
+      border-radius: 15px;
+      padding: 5px;
+      width: 130px;
+    }
+    .sec_main {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .sec_main .bob {
+      font-size: 40px;
+      font-family: 'Times New Roman', Times, serif;
+    }
+    .sec_main .bob2 {
+      font-size: 15px;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+    .sec_main p {
+      color: gray;
+      font-size: 13px;
+    }
+    .sec_main .first_button {
+      background-color: green;
+      color: snow;
+      border: none;
+      border-radius: 15px;
+      padding: 5px;
+      width: 120px;
+      text-decoration: none;
+    }
+
+    .first_button_a {
+      color: snow;
+      text-decoration: none;
+    }
+    .first_button_a:hover{
+      color: white;
+    }
+    .sec_main .secound_button {
+      background-color: snow;
+      color: green;
+      border-color: green;
+      border-radius: 15px;
+      padding: 5px;
+      width: 150px;
+    }
+    .th_main b {
+      font-size: 35px;
+      font-family: 'Times New Roman', Times, serif;
+    }
+    .th_main p {
+      color: gray;
+      font-size: 15px;
+    }
+    .th_main a {
+      color: green;
+      font-family: 'Times New Roman', Times, serif;
+    }
+    .comments {
+      width: 220px;
+      height: 100px;
+      background-color: rgb(228, 228, 228);
+      border: none;
+      border-radius: 15px;
+      cursor: pointer;
+      padding: 3px;
+    }
+    .comments:hover {
+      background-color: rgb(196, 195, 195);
+    }
+    .comments .pop1,
+    .pop2 {
+      margin: 20px 30px;
+    }
+    .comments .pop1 {
+      font-size: 15px;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      text-decoration: none;
+      color: black;
+    }
+    .comments .pop2 {
+      color: gray;
+      font-size: 11px;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+    
+    .th_main_child {
+      margin: 50px 100px;
+      display: grid;
+      grid-template-columns: repeat(4, 270px);
+    }
+    .companies {
+      width: 1150px;
+      height: 500px;
+      background-color: rgb(11, 78, 78);
+      color: snow;
+      margin: 15px 30px;
+      border-radius: 10px;
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+    }
+    .companies_first {
+      margin: 30px 30px;
+      
+    }
+    .companies_first .one {
+      font-size: 20px;
+    }
+    .companies_first .two {
+      font-size: 43px;
+      font-family: 'Times New Roman', Times, serif;
+    }
+    .companies_first .thry {
+      font-size: 43px;
+      color: aqua;
+      font-family: 'Times New Roman', Times, serif;
+    }
+    .companies_first p {
+      font-size: 13px;
+    }
+    .companies_first button {
+      border: none;
+      border-radius: 17px;
+      padding: 4px;
+      width: 100px;
+    }
+    .companies_first a {
+      text-decoration: none;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      color: rgb(11, 78, 78);
+      font-size: 12px;
+    }
+{% comment %}  {% endcomment %}
+
+.companieses {
+  width: 1150px;
+  height: 550px;
+  background-color: darkkhaki;
+
+
+  color: green;
+  margin: 15px 30px;
+  border-radius: 10px;
+}
+.companies_firsts {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  margin: 30px 30px;  
+  
+}
+.companies_firsts .one {
+  font-size: 20px;
+}
+.companies_firsts .two {
+  font-size: 47px;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.companies_firsts p {
+  font-size: 15px;
+}
+.companies_firsts button {
+  border: none;
+  border-radius: 17px;
+  padding: 4px;
+  width: 100px;
+}
+.companies_firsts a {
+  text-decoration: none;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color: rgb(11, 78, 78);
+  font-size: 12px;
+}
+
+.ch_green_post {
+  background-color: green;
+  color: snow;
+  width: 290px;
+  height: 120px;
+  padding: 5px;
+  margin: 10px 100px;
+  border-radius: 10px;
+}
+.ch_green_post b, p {
+  margin: 1px 10px;
+}
+.ch_green_post b {
+  font-size: 25px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.ch_green_post p {
+  font-size: 12px;
+}
+.ch_green_post:hover {
+  background-color: snow;
+  color: green;
+}
+.grid_post {
+  display: grid;
+  grid-template-columns: repeat(3,300px);
+}
+.uzupwork {
+  font-family: 'Times New Roman', Times, serif;
+  color: green;
+  font-size: 60px;
+}
+.uzupwork_2 {
+  font-family: 'Times New Roman', Times, serif;
+  color: green;
+  font-size: 50px;
+}
+
+
+.green_text {
+  color: green;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 28px;
+}
+.hover_green {
+  color: lightgray;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 28px;
+}
+.hover_green:hover {
+  color: green;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 28px;
+}
+.hover_greens {
+  color: gray;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 15px;
+}
+.hover_greens:hover {
+  color: green;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 15px;
+}
+.skills {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+}
+.skills a {
+  text-decoration: none;
+  padding: 5px;
+  margin: 50px 40px;
+}
+
+.finish {
+  background-color: rgb(9, 30, 9);
+
+  width: 1300px;
+  height: 600px;
+  margin: 10px -40px;
+  border-radius: 10px;
+}
+
+.clr_snow {
+  text-decoration: none;
+  color: snow;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 12px;
+  margin: 30px 80px;
+}
+
+.ch_finish {
+  display: grid;
+  grid-template-columns: repeat(4,300px);
+}
+
+.grid_b {
+  color: snow;
+  margin: 70px 120px;
+  font-size: 12px;
+}
+.second_b {
+  margin: 10px 850px;
+}
+
+hr {
+  color: snow;
+  box-shadow: 3px 3px 5px snow, -3px -3px 5px gainsboro;
+}
+
+
+
+.ch_curs {
+  width: 540px;
+  height: 370px;
+  border-radius: 10px;
+  background-color: rgb(11, 78, 78);
+  color: snow;
+  {% comment %} margin: 20px 210px; {% endcomment %}
+}
+.ch_curs div {
+  margin: 10px 20px;
+}
+.ch_curs h1,h3,p {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+
+.ch_curs h1 {
+  font-size: 32px;
+  margin: 5px 50px;
+}
+.ch_curs h3 {
+  font-size: 18px;
+}
+.ch_curs p {
+  font-size: 12px;
+  color: lightgray;
+}
+.grid_curs {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+}
+
+{% comment %}  {% endcomment %}
+
+
+.ch_curses {
+  width: 540px;
+  height: 370px;
+  border-radius: 10px;
+  background-color: chocolate;
+  color: snow;
+  {% comment %} margin: 20px 280px; {% endcomment %}
+
+}
+.ch_curses div {
+  margin: 10px 20px;
+}
+.ch_curses h1,h3,p {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+
+.ch_curses h1 {
+  font-size: 32px;
+  margin: 5px 50px;
+}
+.ch_curses h3 {
+  font-size: 18px;
+}
+.ch_curses p {
+  font-size: 12px;
+  color: lightgray;
+}
+.grid_curses {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+}
+{% comment %}  {% endcomment %}
+
+
+.ch_curser {
+  width: 540px;
+  height: 370px;
+  border-radius: 10px;
+  background-color: rgb(9, 30, 9);
+  color: snow;
+  {% comment %} margin: 20px 310px; {% endcomment %}
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+}
+.ch_curser div {
+  margin: 10px 50px;
+}
+.ch_curser h1{
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+
+.ch_curser h1 {
+  font-size: 20px;
+  margin: 25px 100px;
+}
+.mainss {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+}
+.mainss2 {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+}
+
+.mainss3 {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+}
+
+  </style>
+{% endblock %}
+
+{% block content %}
+  <br />
+  <br />
+
+  <div class="main">
+    <div class="ch_main">
+      <div>
+        <h1>How work should work</h1>
+        <p>Forget the old rules. You can have the best people. Right now. Right here.</p>
+        <button><a class="first_button_a" href="{% url 'logout' %}">Get started</a></button>
+        <br /><br />
+        <h6>Trusted by</h6>
+      </div>
+      <div>
+        <br>
+        <br> 
+        <h1 class="uzupwork">UzUpwork</h1>
+      </div>
+    </div>
+    <div class="sec_main">
+      <div>
+        <br>
+        <br>
+
+        <br> 
+        <h1 class="uzupwork">UzUpwork</h1>
+      </div>
+      <div>
+        <b class="bob">Up your work game, it’s easy</b><br />
+
+        <b class="bob2">No cost to join</b>
+        <p>Register and browse professionals, explore projects, or even book a consultation.</p>
+
+        <b class="bob2">Post a job and hire top talent</b>
+        <p>Finding talent doesn’t have to be a chore. Post a job or we can search for you!</p>
+
+        <b class="bob2">Work with the best—without breaking the bank</b>
+        <p>Upwork makes it affordable to up your work and take advantage of low transaction rates.</p>
+
+        <div class="grid_button">
+          <br />
+
+          <button class="first_button"><a class="first_button_a" href="{% url 'logout' %}">Sign up for free</a></button>
+          <button class="secound_button">Learn how to hire</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="th_main">
+      <b>Browse talent by category</b>
+      <p>
+        Looking for work? <a href="">Browse jobs</a>
+      </p>
+    </div>
+
+    <div class="th_main_child">
+      <div class="comments">
+        <br />
+        <a class="pop1" href="https://www.upwork.com/cat/dev-it"><b>Developmant & IT</b></a>
+        <p class="pop2">4.85/5 1852 skills</p>
+      </div>
+
+      <div class="comments">
+        <br />
+        <a class="pop1" href="https://www.upwork.com/cat/ai/"><b>AI Server</b></a>
+        <p class="pop2">4.85/5 1852 skills</p>
+      </div>
+
+      <div class="comments">
+        <br />
+        <a class="pop1" href="https://www.upwork.com/cat/design-creative"><b>Design & Creative</b></a>
+        <p class="pop2">4.85/5 1852 skills</p>
+      </div>
+
+      <div class="comments">
+        <br />
+        <a class="pop1" href="https://www.upwork.com/cat/sales-and-marketing"><b>Sales & Marketing</b></a>
+        <p class="pop2">4.85/5 1852 skills</p>
+      </div>
+    </div>
+
+    <div class="th_main_child">
+      <div class="comments">
+        <br />
+        <a class="pop1" href="https://www.upwork.com/cat/writing-translation"><b>Writing & Trans</b></a>
+        <p class="pop2">4.85/5 1852 skills</p>
+      </div>
+
+      <div class="comments">
+        <br />
+        <a class="pop1" href="https://www.upwork.com/cat/admin-customer-support"><b>Admin & Customer</b></a>
+        <p class="pop2">4.85/5 1852 skills</p>
+      </div>
+
+      <div class="comments">
+        <br />
+        <a class="pop1" href="https://www.upwork.com/cat/finance-accounting"><b>Finance & Account</b></a>
+        <p class="pop2">4.85/5 1852 skills</p>
+      </div>
+
+      <div class="comments">
+        <br />
+        <a class="pop1" href="https://www.upwork.com/cat/engineering-architecture"><b>Enginer & Architec</b></a>
+        <p class="pop2">4.85/5 1852 skills</p>
+      </div>
+    </div>
+
+    <div class="companies">
+      <div class="companies_first">
+        <b class="one">Enterprise Suite</b><br>
+
+        <b class="two">This is how</b><br>
+        <b class="thry">good companies</b><br>
+        <b class="thry">find good company.</b>
+        <p>Access the top 1% of talent on Upwork, and a full suite of hybrid workforce management tools. This is how innovation works now.</p>
+        <p>Access expert talent to fill your skill gaps</p>
+        <p>Control your workflow: hire, classify and pay your talent</p>
+        <p>Partner with Upwork for end-to-end support</p>
+<br>
+        <button><a href="https://www.upwork.com/enterprise/">Learn more</a></button>
+      </div>
+      <div></div>
+    </div>
+<marquee behavior="right" direction="">
+  <h1 class="uzupwork_2">Welcome to website UzUpwork
+</h1></marquee>
+
+    <div class="companieses">
+      <div class="companies_firsts">
+        <div><br><br>
+          <b class="one">For clients</b><br><br><br>
+  
+          <b class="two">Find talent</b><br>
+          <b class="two">your way</b><br>
+          <p>Work with the largest network of independent professionals and get things done—from quick turnarounds to big transformations.</p>
+  
+  
+          <button><a href="https://www.upwork.com/enterprise/">Learn more</a></button>
+
+        </div>
+        <div></div>
+      </div><br>
+
+      <div class="grid_post">
+      <div class="green_post">
+        <div class="ch_green_post">
+          <b>Post a job</b><br>
+          <b>and hire a pro</b>
+          <p>Talent Marketplace -></p>
+        </div>
+      </div>
+
+      <div class="green_post">
+        <div class="ch_green_post">
+          <b>Browse and</b><br>
+          <b>buy project</b>
+          <p>Project Catalog -></p>
+        </div>
+      </div>
+
+      <div class="green_post">
+        <div class="ch_green_post">
+          <b>Get advice from an</b><br>
+          <b>industry expert</b>
+          <p>Consultation -></p>
+        </div>
+      </div>
+</div>
+    </div>  
+
+    {% comment %}  {% endcomment %}
+    {% comment %}  {% endcomment %}
+    
+
+  <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active" data-bs-interval="10000" >
+        <div class="mainss">
+        <div class="ch_curs">
+          <div>
+            <br>
+          <h1>Nasdaq</h1>
+  
+          <h3>
+            “Upwork enables us to differentiate ourselves from our competitors and produce content at a higher caliber.”
+          </h3>
+          <p>Josh Machiz, Chief Digital Officer</p>
+  
+          <br><br>
+          <p>Result</p>
+          <hr>
+          <div class="grid_curs">
+            <div>
+              <h3>Emmy Winning</h3>
+              <p>Facebook Watch</p>
+              <p>program</p>
+            </div>
+            <div>
+              <h3>Millions</h3>
+              <p>of impressions generat per</p>
+              <p>client per IPO</p>
+            </div>
+          </div>
+          
+        </div>
+        </div>
+        {% comment %}  {% endcomment %}
+        <div class="ch_curses">
+          <div>
+            <br>
+          <h1>Microsoft</h1>
+  
+          <h3>
+            “One of the advantages of utilizing freelancers is finding talent with different skills quickly as our needs change.”
+          </h3>
+          <p>Carol Taylor, Director of Content Experience</p>
+  
+          <br><br>
+          <p>Result</p>
+          <hr>
+          <div class="grid_curses">
+            <div>
+              <h3>50% Faster</h3>
+              <p>launch of projects</p>
+            </div>
+            <div>
+              <h3>10,000</h3>
+              <p>projects completedr</p>
+            </div>
+          </div>
+          
+        </div>
+        </div>
+  </div>      
+      </div>
+      <div class="carousel-item" data-bs-interval="2000" style="background-color: snow;">
+        <div class="mainss2">
+        <div class="ch_curses">
+          <div>
+            <br>
+          <h1>Microsoft</h1>
+  
+          <h3>
+            “One of the advantages of utilizing freelancers is finding talent with different skills quickly as our needs change.”
+          </h3>
+          <p>Carol Taylor, Director of Content Experience</p>
+  
+          <br><br>
+          <p>Result</p>
+          <hr>
+          <div class="grid_curses">
+            <div>
+              <h3>50% Faster</h3>
+              <p>launch of projects</p>
+            </div>
+            <div>
+              <h3>10,000</h3>
+              <p>projects completedr</p>
+            </div>
+          </div>
+          
+        </div>
+        </div>
+        {% comment %}  {% endcomment %}
+
+        <div class="ch_curser">
+          <div></div>
+          <div>
+            <h1>And many more</h1>
+            <h1>Nasdaq</h1>
+            <h1>AUTOMATTIC</h1>
+            <h1>Bissell</h1>
+            <h1>COTY</h1>
+            <h1>RANCER</h1>
+      
+        </div>
+        </div>
+
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="mainss3">
+        <div class="ch_curser">
+          <div></div>
+          <div>
+            <h1>And many more</h1>
+            <h1>Nasdaq</h1>
+            <h1>AUTOMATTIC</h1>
+            <h1>Bissell</h1>
+            <h1>COTY</h1>
+            <h1>RANCER</h1>
+      
+        </div>
+        </div>
+        {% comment %}  {% endcomment %}
+        <div class="ch_curs">
+          <div>
+            <br>
+          <h1>Nasdaq</h1>
+  
+          <h3>
+            “Upwork enables us to differentiate ourselves from our competitors and produce content at a higher caliber.”
+          </h3>
+          <p>Josh Machiz, Chief Digital Officer</p>
+  
+          <br><br>
+          <p>Result</p>
+          <hr>
+          <div class="grid_curs">
+            <div>
+              <h3>Emmy Winning</h3>
+              <p>Facebook Watch</p>
+              <p>program</p>
+            </div>
+            <div>
+              <h3>Millions</h3>
+              <p>of impressions generat per</p>
+              <p>client per IPO</p>
+            </div>
+          </div>
+          
+        </div>
+        </div>
+
+</div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+
+    {% comment %}  {% endcomment %}
+    {% comment %}  {% endcomment %}
+    
+    
+    
+    
+   
+    
+
+    <div class="skills">
+      <div>
+        <br><br><br>
+        <a class="green_text">Top skills</a><br>
+        <a class="hover_green">Trending skills</a><br>
+        <a class="hover_green">Top skills in US</a><br>
+        <a class="hover_green">Project CatalogTM</a>
+      </div>
+
+      <div>
+        <br><br><br>
+        <a class="hover_greens">Generative AI Specialists</a><br>
+        <a class="hover_greens">Data Entry Specialists</a><br>
+        <a class="hover_greens">Video Editors</a><br>
+        <a class="hover_greens">Data Analyst</a><br>
+        <a class="hover_greens">Shopify Developer</a><br>
+        <a class="hover_greens">Ruby on Rails Developer</a><br>
+        <a class="hover_greens">Android Developer</a><br>
+        <a class="hover_greens">Bookkeeper</a><br>
+        <a class="hover_greens">Content Writer</a><br>
+        <a class="hover_greens">Copywriter</a><br>
+        <a class="hover_greens">Data Scientist</a><br>
+        <a class="hover_greens">Front-End Developer</a><br>
+        <a class="hover_greens">Game Developer</a><br>
+        <a class="hover_greens">Graphic Designer</a><br>
+        <a class="hover_greens">iOS Developer</a><br>
+        <a class="hover_greens">Java Developer</a>
+      </div>
+
+      <div>
+        <br><br><br>
+        <a class="hover_greens" href="">JavaScript Developer</a><br>
+        <a class="hover_greens" href="">Logo Designer</a><br>
+        <a class="hover_greens" href="">Mobile App Developer</a><br>
+        <a class="hover_greens" href="">PHP Developer</a><br>
+        <a class="hover_greens" href="https://www.python.org/">Python Developer</a><br>
+        <a class="hover_greens" href="">Resume Writer</a><br>
+        <a class="hover_greens" href="">SEO Expert</a><br>
+        <a class="hover_greens" href="">Social Media Manager</a><br>
+        <a class="hover_greens" href="">Software Developer</a><br>
+        <a class="hover_greens" href="">Software Engineer</a><br>
+        <a class="hover_greens" href="">Technical Writer</a><br>
+        <a class="hover_greens" href="">UI Designer</a>    <br>
+        <a class="hover_greens" href="">UX Designer</a><br>
+        <a class="hover_greens" href="">Virtual Assistant</a><br>
+        <a class="hover_greens" href="">Web Designer</a><br>
+        <a class="hover_greens" href="">Wordpress Developer</a>
+
+
+
+
+      </div>
+
+    </div>
+<br><br>
+
+
+
+    <div class="finish">
+        <div class="ch_finish">
+
+          <div>
+            <br><br>
+            <a class="clr_snow" href="">For Clients</a><br>
+            <a class="clr_snow" href="">How to Hire</a><br>
+            <a class="clr_snow" href="">Talent Marketplace</a><br>
+            <a class="clr_snow" href="">Project Catalog</a><br>
+            <a class="clr_snow" href="">Hire an Agency</a><br>
+            <a class="clr_snow" href="">Enterprise</a><br>
+            <a class="clr_snow" href="">Any Hire</a><br>
+            <a class="clr_snow" href="">Contract-to-Hire</a><br>
+            <a class="clr_snow" href="">Direct Contracts</a><br>
+            <a class="clr_snow" href="">Hire Worldwide</a><br>
+            <a class="clr_snow" href="">Hire in the USA</a>
+          </div>
+
+          <div>
+            <br><br>
+            <a class="clr_snow" href="">For Talent</a><br>
+            <a class="clr_snow" href="">How to Find Work</a><br>
+            <a class="clr_snow" href="">Direct Contracts</a><br>
+            <a class="clr_snow" href="">Find Freelance World</a><br>
+            <a class="clr_snow" href="">Find Freelance Jobs USA</a>
+          </div>
+
+          <div>
+            <br><br>
+            <a class="clr_snow" href="">Resources</a><br>
+            <a class="clr_snow" href="">Help & Support </a><br>
+            <a class="clr_snow" href="">Success Stories</a><br>
+            <a class="clr_snow" href="">Upwork Reviews</a><br>
+            <a class="clr_snow" href="">Resources</a><br>
+            <a class="clr_snow" href="">Blog</a><br>
+            <a class="clr_snow" href="">Community</a><br>
+            <a class="clr_snow" href="">Affiliate Program</a><br>
+            <a class="clr_snow" href="">Free Business tools</a><br>
+          </div>
+          
+          <div>
+            <br><br>
+            <a  class="clr_snow" href="">Company</a><br>
+            <a  class="clr_snow" href="">About Us</a><br>
+            <a  class="clr_snow" href="">Leadership</a><br>
+            <a  class="clr_snow" href="">Investor Relations</a><br>
+            <a  class="clr_snow" href="">Careers</a><br>
+            <a  class="clr_snow" href="">Our Impact</a><br>
+            <a  class="clr_snow" href="">Press</a><br>
+            <a  class="clr_snow" href="">Contact Us</a><br>
+            <a  class="clr_snow" href="">Trust, Safety & Security</a><br>
+            <a  class="clr_snow" href="">Modern Slavery State</a>
+
+          </div>
+        </div>
+
+        <div class="grid_b">
+          <b class="first_b">Follow Us</b>
+          <b class="second_b">Mobile_app</b>
+
+          <hr>
+          <p>
+            © 2015 - 2023 Upwork® Global Inc.
+            Terms of Service
+            Privacy Policy
+            CA Notice at Collection
+            Cookie Settings
+            Accessibility
+          </p>
+        </div>
+
+    </div>
+
+
+
+  </div>
+{% endblock %}

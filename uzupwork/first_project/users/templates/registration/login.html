@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+{% comment %} {% load socialaccount %} {% endcomment %}
+
+{% block title %}
+  <title>Login</title>
+{% endblock %}
+
+
+{% block style %}
+<style>
+  .container {
+    background-image: linear-gradient(to right, snow, white); 
+    border-radius: 20px 20px 20px 20px;
+    padding: 50px;
+    border: 2px solid lightgray;
+    width: 550px;
+  }
+  h1 {
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 20px;
+  }
+
+  .apple {
+    border: 2px slice black;
+    border-radius: 18px;
+    background-color: snow;
+    color: black;
+    width: 350px;
+    padding: 3px;
+    margin: 10px 50px;
+  }
+  .google {
+    border: 2px slice black;
+    border-radius: 18px;
+    background-color: blue;
+    color: snow;
+    width: 350px;
+    padding: 3px;
+    margin: 10px 50px;
+  }
+
+  hr{
+    width: 120px;
+  }
+  .grid_hr {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    margin: 10px 90px;
+  }
+  .grid_hr2 hr{
+    width: 100px;
+  }
+  .grid_hr2 {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    margin: 10px 5px;
+    color: gray;
+  }
+  .sign_up {
+    width: 180px;
+    padding: 5px;
+    border-radius: 20px;
+    background-color: snow;
+    border: 2px solid green;
+    margin: 10px 130px;
+  }
+  .sign_up a {
+    text-decoration: none;
+    color: green;
+    
+  }
+  .uzupwork {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: green;
+    font-size: 18px;
+  }
+</style>
+{% endblock %}
+
+{% block auth_content %}
+<br>
+  <div class="container">
+    <h1>Log in to <span class="uzupwork">UzUpwork</span></h1>
+
+    {% include "form_snippets.html" with form=form btn_text='Login' %}
+
+    <div class="grid_hr">
+      <div><hr></div>
+      <div><pre> or </pre></div>
+      <div><hr></div>
+    </div>
+
+
+    <button class="google">Continue with Google</button><br>
+    <button class="apple">Continue with Apple</button>
+
+
+    
+      {% comment %} <a href="{% url 'registration' %}"> {% endcomment %}
+<br><br>
+    <div class="grid_hr2">
+      <div><hr></div>
+      <div><pre>  Don't have UzUpwork account? </pre></div>
+      <div><hr></div>
+    </div>
+
+<button class="sign_up"><a href="{% url 'registration' %}">Sign Up</a></button>
+
+
+{% comment %} <a href="{% provider_login_url 'google' %}">Login with Google</a>
+<a href="{% provider_login_url 'github' %}">Login with Github</a> {% endcomment %}
+  </div>
+  
+{% endblock %}
+
+{% block script %}
+
+{% endblock %}

@@ -1,0 +1,37 @@
+{% load static %}
+
+{% block title %}
+  <title>Submit</title>
+{% endblock %}
+
+{% block link %}
+{% endblock %}
+
+
+{% block style %}
+<style>
+    button {
+      border-radius: 15px;
+      padding: 5px;
+      background-color: red;
+      color: snow;
+
+    }
+    a {
+      text-decoration: none;
+      color: snow;
+    }
+</style>
+
+{% endblock %}
+
+{% block content %}
+<br><br><br>
+
+<button><a href="{% url 'books_view' %}">back</a></button>
+<h1>Your request has been sent successfully</h1>
+  
+{% endblock %}
+
+{% block script %}
+{% endblock %}

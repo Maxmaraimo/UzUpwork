@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  <title>Registration</title>
+{% endblock %}
+
+{% block style %}
+<style>
+  
+  .container {
+    background-image: linear-gradient(to right, snow, white); 
+    border-radius: 20px 20px 20px 20px;
+    padding: 50px;
+    border: 2px solid lightgray;
+    width: 950px;
+  }
+  h1 {
+    text-align: center;
+  }
+  .apple {
+    border: 2px slice black;
+    border-radius: 18px;
+    background-color: snow;
+    color: black;
+    width: 500px;
+    padding: 3px;
+    margin: 10px 180px;
+  }
+  .google {
+    border: 2px slice black;
+    border-radius: 18px;
+    background-color: blue;
+    color: snow;
+    width: 500px;
+    padding: 3px;
+    margin: 10px 180px;
+  }
+  hr{
+    width: 220px;
+  }
+  .grid_hr {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    margin: 10px 210px;
+  }
+</style>
+{% endblock  %}
+{% block auth_content %}
+<br>
+  <div class="container">
+    <h1>Sign up to hire talent</h1>
+
+    <button class="apple">Continue with Apple</button><br>
+    <button class="google">Continue with Google</button>
+    <div class="grid_hr">
+      <div><hr></div>
+      <div><pre> or </pre></div>
+      <div><hr></div>
+    </div>
+
+
+
+
+    
+    {% include "form_snippets.html" with form=form btn_text='Register' %}
+
+    <div class="mb-5"><br>
+      <small class="text-muted">
+        Already have an account? 
+            <a href="{% url 'login' %}">Login</a> 
+        </small>
+      </div>
+      <div class="input-group">
+        <label for="location">Location</label>
+        <select name="location" id="location">
+          <option value="US">United States</option>
+          <option value="UK">United Kingdom</option>
+          <option value="CA">Canada</option>
+          <option value="">Other</option>
+        </select>
+      </div>
+  </div>
+{% endblock %}
+
+{% block script %}
+
+{% endblock %}
+  

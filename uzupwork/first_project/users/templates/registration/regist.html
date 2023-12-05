@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  <title>Регистрация на Upwork</title>
+{% endblock %}
+
+{% block style %}
+  <style>
+    body {
+        background-color: snow;
+    }
+    .main {
+        width: 700px;
+        height: 400px;
+        margin: 20px 350px;
+        border-radius: 10px;
+        box-shadow: 1px 1px 2px gray, -1px -1px 2px gray;
+    }
+    .ch_main {
+        display: grid;
+        grid-template-columns: repeat(2, 320px);
+
+    }
+    .ch_main div {
+      width: 220px;
+      height: 120px;
+      border-radius: 10px;
+      margin: 50px 85px;
+      background-color: snow;
+      box-shadow: 1px 1px 2px gray, -1px -1px 2px gray;
+    }
+    .ch_main div:hover {
+      border: 2px inset green;
+    }
+    .ch_main div p {
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      font-size: 17px;
+      margin: -20px 30px;
+    }
+    .ch_main input {
+      margin: 30px 180px;
+    }
+    .h1 {
+        font-family: 'Times New Roman', Times, serif;
+        margin: 40px 170px;
+        font-size: 30px;
+    }
+    button {
+        border-radius: 10px;
+        background-color: lightgray;
+        color: gray;
+        border: none;
+        padding: 3px;
+        width: 220px;
+        margin: 4px 230px;
+    }
+    button a {
+        text-decoration: none;
+        color: gray;
+    }
+    button:hover {
+        background-color: green;
+        color: snow;
+    }
+    button a:hover {
+        color: snow;
+
+    }
+    small {
+        margin: 2px 230px;
+
+    }
+    .uzupwork {
+        font-family: 'Times New Roman', Times, serif;
+        color: green;
+        font-size: 50px;
+    }
+  </style>
+{% endblock %}
+{% block auth_content %}
+  <h1 class="uzupwork">UzUpwork</h1>
+
+  <div class="main"><br>
+    <b class="h1">Join as a client or freelancer</b>
+    <div class="ch_main">
+      <div class="">
+        <input type="radio" name="radio" id="" />
+        <p>I'm a client, hiring for a project</p>
+      </div>
+      <div class="">
+        <input type="radio" name="radio" id="" />
+        <p>I'm a freelancer, looking for work</p>
+      </div>
+    </div>
+    <button><a href="{% url 'registration_s' %}">Create Account</a></button><br>
+    <div class="mb-5">
+        <small class="text-muted">
+            Already have an account?
+            <a href="{% url 'login' %}">Log In</a> 
+        </small>
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block script %}
+
+{% endblock %}

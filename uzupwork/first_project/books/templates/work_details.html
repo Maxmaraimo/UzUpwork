@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+{% load static %}
+
+{% block title %}
+  <title>Work details</title>
+{% endblock %}
+
+{% block link %}
+{% endblock %}
+
+{% block content %}
+<br><br><br>
+
+
+    <h1>{{ object.title }}</h1>
+    <p class="book-cost">$ {{ book.price }} {{ book.author }}</p>
+
+    <form action="?email={{ object.email }}" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Email address </label>
+        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+      </div>
+
+      <div class="form-floating">
+        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+        <label for="floatingTextarea2">Comments</label>
+      </div>
+
+      <p>{{ object.description }}</p>
+
+      <input type="file" name="file">
+
+      <a href="{% url 'submit' object.id %}" class="btn btn-success">Submit</a>
+
+    </form>
+{% endblock %}
+
+{% block script %}
+{% endblock %}

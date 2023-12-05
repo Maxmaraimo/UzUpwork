@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+{% load static %}
+
+{% block title %}
+  <title>Public a new Job</title>
+{% endblock %}
+
+{% block style %}
+<style>
+
+
+  .main-content {
+    margin: 0 auto;
+    max-width: 960px;
+  }
+
+  .upwork-button {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+  }
+
+  .main {
+    background-color: #ffffff;
+    color: green;
+    border-radius: 15px;
+    font-family: sans-serif;
+    font-size: 14px;
+    width: 1200px;
+    margin: 10px 40px;
+    padding: 10px;
+  }
+
+  input {
+    border: 2px solid green;
+  }
+</style>
+{% endblock %}
+
+{% block link %}
+{% endblock %}
+
+{% block content %}
+<br><br><br>
+<div class="main"><br>
+  <div class="main-content">
+    <h1>Publish new Job</h1>
+    {% include "form_snippets.html" with form=form %}
+  </div>
+</div>
+{% endblock %}
+
+{% block script %}
+{% endblock %}

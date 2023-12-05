@@ -1,0 +1,103 @@
+{% load static %}
+{% load django_bootstrap5 %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon" />
+
+    {% block title %}
+      <title>AC Django Project</title>
+    {% endblock %}
+
+    {% bootstrap_css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/navbar.css' %}" />
+
+    {% block link %}
+
+    {% endblock %}
+
+    {% block style %}
+
+    {% endblock %}
+  </head>
+  {% comment %} 
+    1. Menu Nav
+      - Logo
+      - Name
+      - Logged In/Out buttons
+      - Social accounts
+    2. Background - 
+      - Image
+      - Slogan
+      - Links
+    3. Get Navbar into this header of bg-image
+    4. Use font-family Fino
+  {% endcomment %}
+  <body>
+
+
+    {% if user.is_authenticated %}
+      <main id="logged-in-menu">
+        <div>
+          {% include 'navbar.html' %}
+        </div>
+        <div>
+          <div id="messages">
+            {% bootstrap_messages %}
+          </div>
+
+          {% block content %}
+
+          {% endblock %}
+
+          {% block script %}
+
+          {% endblock %}
+        </div>
+      </main>
+    {% else %}
+      <div class="logged-out-navbar">
+        <a 
+        style="
+        float: left;
+        font-family: 'Times New Roman', Times, serif;
+        color: green;
+        font-size: 18px;
+        " 
+        href="{% url 'home_page' %}
+        ">
+        UzUpwork
+      </a>
+        
+        <a href="{% url 'registration' %}">Registration</a>
+        <a href="{% url 'login' %}">Login</a>
+      </div>
+      <main id="logged-out-menu">
+        {% bootstrap_messages %}
+        {% block auth_content %}
+          <h1>Authenticate</h1>
+          <hr />
+        {% endblock %}
+      </main>
+    {% endif %}
+
+    {% bootstrap_javascript %}
+    <script>
+      setTimeout(() => {
+        const messages = document.querySelectorAll('#messages')
+        messages.forEach((msg) => {
+          msg.remove()
+        })
+      }, 5000)
+      
+      var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+      var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl)
+      })
+    </script>
+  </body>
+</html>

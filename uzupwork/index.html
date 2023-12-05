@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+  <div class="sign-up-form">
+    <h1>Sign up to hire talent</h1>
+  
+    <form action="#">
+      <div class="input-group">
+        <label for="first_name">First name</label>
+        <input type="text" name="first_name" id="first_name">
+      </div>
+  
+      <div class="input-group">
+        <label for="last_name">Last name</label>
+        <input type="text" name="last_name" id="last_name">
+      </div>
+  
+      <div class="input-group">
+        <label for="work_email">Work email address</label>
+        <input type="email" name="work_email" id="work_email">
+      </div>
+  
+      <div class="input-group">
+        <label for="password">Password (8 or more characters)</label>
+        <input type="password" name="password" id="password">
+      </div>
+  
+      <div class="input-group">
+        <label for="location">Location</label>
+        <select name="location" id="location">
+          <option value="US">United States</option>
+          <option value="UK">United Kingdom</option>
+          <option value="CA">Canada</option>
+          <option value="">Other</option>
+        </select>
+      </div>
+  
+      <div class="checkbox">
+        <input type="checkbox" name="send_emails" id="send_emails">
+        <label for="send_emails">Send me emails with tips on how to find talent that fits my needs</label>
+      </div>
+  
+      <div class="input-group">
+        <input type="submit" value="Create my account">
+      </div>
+    </form>
+  </div>
+  
+</body>
+<style>
+    .sign-up-form {
+  width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+}
+
+.sign-up-form h1 {
+  text-align: center;
+}
+
+.sign-up-form form {
+  margin-top: 20px;
+}
+
+.sign-up-form input-group {
+  margin-bottom: 10px;
+}
+
+.sign-up-form input,
+.sign-up-form select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+.sign-up-form checkbox {
+  margin-bottom: 10px;
+}
+
+.sign-up-form input[type="submit"] {
+  width: 100%;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+</style>
+
+</html>

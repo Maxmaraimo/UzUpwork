@@ -1,0 +1,31 @@
+{% load static %}
+{% load django_bootstrap5 %}
+
+{% block style %}
+  <style>
+    {% comment %} .navbar {
+      height: 60px;
+      width: 220vh;
+      position: static;
+  } {% endcomment %}
+  </style>
+{% endblock %}
+
+{% block navbar %}
+  <nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+      <form class="d-flex" action="/search">
+        <a class="navbar-brand" href="{% url 'home_page' %}" data-bs-toggle="tooltip" title="Home" style="color: green;">UzUpwork</a>
+
+      </form> 
+
+      <span class="navbar-text">
+        <a class="navbar-brand" href="{% url 'books_view' %}" data-bs-toggle="tooltip" title="Find Job">🔍</a>
+        <a class="navbar-brand" href="{% url 'add_job' %}" data-bs-toggle="tooltip" title="make job">job</a>
+        <a class="navbar-brand" href="{% url 'profile' %}" data-bs-toggle="tooltip" title="Profile">Profile</a>
+        <a class="navbar-brand" href="{% url 'logout' %}" data-bs-toggle="tooltip" title="Logout">&rightarrow;</a>
+      </span>
+    </div>
+  </nav>
+{% endblock %}
+
