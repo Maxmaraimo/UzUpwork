@@ -3,11 +3,10 @@
 
 {% block style %}
   <style>
-    {% comment %} .navbar {
+    nav {
       height: 60px;
-      width: 220vh;
-      position: static;
-  } {% endcomment %}
+      width: 250vh;
+  }
   </style>
 {% endblock %}
 
@@ -15,7 +14,7 @@
   <nav class="navbar navbar-light bg-light">
     <div class="container-fluid">
       <form class="d-flex" action="/search">
-        <a class="navbar-brand" href="{% url 'home_page' %}" data-bs-toggle="tooltip" title="Home" style="color: green;">UzUpwork</a>
+        <a class="navbar-brand" href="{% url 'home_page' %}" data-bs-toggle="tooltip" title="Home">Home</a>
 
       </form> 
 
